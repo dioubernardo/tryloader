@@ -1,0 +1,24 @@
+{
+  "name": "tryloader",
+  "version": "0.0.1",
+  "authors": [
+    "Bernardo Silva"
+  ],
+  "description": "Loader for Angular and Parse.com",
+  "main": "tryloader.js",
+  "keywords": [
+    "loader",
+    "angular",
+    "parse.com"
+  ],
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/dioubernardo/tryloader",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

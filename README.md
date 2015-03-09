@@ -1,0 +1,1 @@
+Simple loader for Angular and Parse.com, use ng-show="isLoading" in loading object.
