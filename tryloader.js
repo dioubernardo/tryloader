@@ -1,18 +1,20 @@
+(function(window){
+
 'use strict';
 
 var __tryloaderChange;
 
-angular.module('tryloader', [])
-	.run(function($rootScope){
+var module = angular.module('tryloader', []);
+	module.run(['$rootScope', function($rootScope){
 		$rootScope.isLoading = false;
 		var counter = 0;
 		__tryloaderChange = function(i){
 			counter += i;
 			$rootScope.isLoading = counter > 0; 
 		}
-	})
-	.config(function($httpProvider){
-		$httpProvider.interceptors.push(function($q) {
+	}])
+	module.config(['$httpProvider',function($httpProvider){
+		$httpProvider.interceptors.push(['$q', function($q) {
 			return {
 				'request': function(config){
 					__tryloaderChange(1);
@@ -31,8 +33,8 @@ angular.module('tryloader', [])
 					return $q.reject(rejection);
 				}
 			};
-		});	
-	});
+		}]);	
+	}]);
 
 Parse._ajax = function(original){
 	return function (method, url, data, success, error){
@@ -48,3 +50,5 @@ Parse._ajax = function(original){
 		});
 	};
 }(Parse._ajax);
+
+})(this);
